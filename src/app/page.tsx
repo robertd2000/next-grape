@@ -1,5 +1,5 @@
 "use client";
-import { Inspector, SidebarLeft } from "@/components";
+import { Inspector, SidebarLeft, Spinner } from "@/components";
 import { gjsOptions } from "@/constants";
 import GjsEditor, {
   AssetsProvider,
@@ -7,17 +7,21 @@ import GjsEditor, {
   ModalProvider,
 } from "@grapesjs/react";
 import type { Editor } from "grapesjs";
+import { useState } from "react";
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+
   const onEditor = (editor: Editor) => {
-    console.log("Editor loaded");
     (window as any).editor = editor;
+
+    setIsLoading(false);
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between ">
+    <main className="flex min-h-screen flex-col items-center justify-between relative">
       <GjsEditor
-        className="gjs-custom-editor text-white bg-slate-900"
+        className="gjs-custom-editor text-white bg-dark"
         grapesjs="https://unpkg.com/grapesjs"
         grapesjsCss="https://unpkg.com/grapesjs/dist/css/grapes.min.css"
         options={gjsOptions}
@@ -29,6 +33,7 @@ export default function Home() {
         ]}
         onEditor={onEditor}
       >
+        {isLoading ? <Spinner /> : null}
         <div className={`flex h-full border-t`}>
           <SidebarLeft />
 
