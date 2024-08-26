@@ -63,7 +63,12 @@ export function StylePropertyField({ prop, ...rest }: StylePropertyFieldProps) {
   const valueWithDef = hasValue ? value : defValue;
 
   let inputToRender = (
-    <Input placeholder={defValue} value={valueString} onChange={onChange} />
+    <Input
+      placeholder={defValue}
+      value={valueString}
+      onChange={onChange}
+      className="bg-inherit"
+    />
   );
 
   switch (type) {
@@ -74,10 +79,14 @@ export function StylePropertyField({ prop, ...rest }: StylePropertyFieldProps) {
           <RadioGroup value={value} onChange={onChange}>
             {radioProp.getOptions().map((option) => (
               <div
-                className="flex items-center space-x-2"
+                className="flex items-center space-x-2 bg-inherit"
                 key={radioProp.getOptionId(option)}
               >
-                <RadioGroupItem value={radioProp.getOptionId(option)} id="r1" />
+                <RadioGroupItem
+                  value={radioProp.getOptionId(option)}
+                  id="r1"
+                  className="bg-inherit"
+                />
                 <Label htmlFor="r1">{radioProp.getOptionLabel(option)}</Label>
               </div>
               //   <FormControlLabel
@@ -101,7 +110,7 @@ export function StylePropertyField({ prop, ...rest }: StylePropertyFieldProps) {
               handleChange(e);
             }}
           >
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className="w-[180px] bg-inherit">
               <SelectValue placeholder="Select a fruit" />
             </SelectTrigger>
             <SelectContent>

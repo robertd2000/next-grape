@@ -63,7 +63,7 @@ export default function LayerItem({
         dragParent={dragParent}
       />
     ));
-  }, [cmpHash, draggingCmp, dragParent]);
+  }, [components, level, draggingCmp, dragParent]);
 
   const toggleOpen = (ev: MouseEvent) => {
     ev.stopPropagation();
@@ -104,7 +104,7 @@ export default function LayerItem({
       >
         <div
           className={cn(
-            "flex items-center p-1 pr-2 border-b gap-1",
+            "flex items-center p-1 pr-2 gap-1",
             level === 0 && "border-t",
             isHovered && "bg-sky-700",
             selected && "bg-sky-500"
