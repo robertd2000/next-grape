@@ -1,5 +1,5 @@
 "use client";
-import { SidebarLeft } from "@/components";
+import { Inspector, SidebarLeft } from "@/components";
 import { gjsOptions } from "@/constants";
 import GjsEditor, {
   AssetsProvider,
@@ -35,6 +35,8 @@ export default function Home() {
           <div className="gjs-column-m flex flex-col flex-grow">
             <Canvas />
           </div>
+
+          <Inspector />
         </div>
       </GjsEditor>
     </main>
