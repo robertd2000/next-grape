@@ -15,6 +15,13 @@ export default function Home() {
   const onEditor = (editor: Editor) => {
     (window as any).editor = editor;
 
+    editor.BlockManager.add("test-component", {
+      label: "Test Component",
+      content: `<div data-gjs-type="test-component">
+      Test text
+      </div>`,
+    });
+
     setIsLoading(false);
   };
 
