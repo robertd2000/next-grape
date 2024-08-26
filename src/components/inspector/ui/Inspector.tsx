@@ -1,6 +1,6 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { StylesProvider } from "@grapesjs/react";
-import { StyleManager } from "./tabs";
+import { SelectorsProvider, StylesProvider } from "@grapesjs/react";
+import { SelectorManager, StyleManager } from "./tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 export function Inspector() {
@@ -13,9 +13,9 @@ export function Inspector() {
         </TabsList>
         <TabsContent value="style">
           <>
-            {/* <SelectorsProvider>
-              {(props) => <CustomSelectorManager {...props} />}
-            </SelectorsProvider> */}
+            <SelectorsProvider>
+              {(props) => <SelectorManager {...props} />}
+            </SelectorsProvider>
             <StylesProvider>
               {(props) => <StyleManager {...props} />}
             </StylesProvider>
