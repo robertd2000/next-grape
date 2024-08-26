@@ -1,8 +1,8 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { LayersProvider } from "@grapesjs/react";
+import { BlocksProvider, LayersProvider } from "@grapesjs/react";
 import { MdOutlineLayers, MdOutlineAddToPhotos } from "react-icons/md";
 import { RiPagesLine } from "react-icons/ri";
-import { Layers } from "./tabs";
+import { Blocks, Layers } from "./tabs";
 
 export function SidebarLeft() {
   return (
@@ -21,7 +21,9 @@ export function SidebarLeft() {
       <TabsContent value="layers">
         <LayersProvider>{(props) => <Layers {...props} />}</LayersProvider>
       </TabsContent>
-      <TabsContent value="components">Components</TabsContent>
+      <TabsContent value="components">
+        <BlocksProvider>{(props) => <Blocks {...props} />}</BlocksProvider>
+      </TabsContent>
       <TabsContent value="pages">Pages</TabsContent>
     </Tabs>
   );
